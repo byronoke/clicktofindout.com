@@ -13,6 +13,7 @@
             --gold: #d4af37;
             --soft-pink: #fff0f3;
             --deep-pink: #ff4d6d;
+            --lily-pink: #ffb7c5; /* New Pink Color for visibility */
         }
 
         body {
@@ -31,7 +32,7 @@
 
         @keyframes zoomIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
 
-        /* LUXURY ENVELOPE (SCREEN 1) */
+        /* LUXURY ENVELOPE */
         .luxury-envelope {
             width: 300px; height: 200px;
             background: var(--red);
@@ -56,7 +57,7 @@
             font-family: 'Dancing Script'; font-size: 2.2rem; color: #4b3621; border: 3px double #b8860b;
         }
 
-        /* POLAROID STYLING (SCREEN 2) */
+        /* POLAROIDS */
         .polaroid-gallery { position: relative; height: 280px; margin-top: 40px; }
         .polaroid {
             position: absolute; width: 90px; background: white;
@@ -70,7 +71,48 @@
         .p4 { top: 130px; right: 5%; transform: rotate(12deg); }
         .p5 { top: 70px; left: 35%; transform: rotate(2deg); z-index: 6; width: 110px; }
 
-        /* WILL YOU BE MY VALENTINE (CUTE STYLE) */
+        /* UPDATED LILY CSS (PINK & VISIBLE) */
+        .lily-container {
+            position: relative;
+            width: 120px;
+            height: 150px;
+            margin: 20px auto;
+        }
+        .lily-petal {
+            position: absolute;
+            width: 35px;
+            height: 75px;
+            background: var(--lily-pink);
+            border-radius: 50% 50% 50% 50% / 80% 80% 20% 20%;
+            bottom: 50px;
+            left: 42px;
+            transform-origin: bottom center;
+            box-shadow: inset 0 -10px 10px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255, 100, 150, 0.2);
+        }
+        .p1-lily { transform: rotate(0deg); z-index: 4; }
+        .p2-lily { transform: rotate(45deg); opacity: 0.9; }
+        .p3-lily { transform: rotate(-45deg); opacity: 0.9; }
+        .p4-lily { transform: rotate(80deg); opacity: 0.8; height: 65px; }
+        .p5-lily { transform: rotate(-80deg); opacity: 0.8; height: 65px; }
+
+        .lily-stem {
+            position: absolute;
+            width: 6px; height: 60px;
+            background: #4a7c44;
+            bottom: 0; left: 57px;
+            border-radius: 4px;
+        }
+        .lily-stamen {
+            position: absolute;
+            width: 3px; height: 35px;
+            background: #ffdb58;
+            bottom: 80px; left: 58px;
+            z-index: 5;
+            border-radius: 2px;
+        }
+
+        /* VALENTINE BOX */
         .valentine-box {
             background: var(--soft-pink);
             color: #333;
@@ -79,12 +121,6 @@
             border: 5px solid white;
             box-shadow: 0 15px 35px rgba(255, 77, 109, 0.3);
             position: relative;
-        }
-        .valentine-box::before {
-            content: '🌸'; position: absolute; top: 10px; left: 10px; font-size: 1.5rem;
-        }
-        .valentine-box::after {
-            content: '✨'; position: absolute; bottom: 10px; right: 10px; font-size: 1.5rem;
         }
         .cute-script { font-family: 'Dancing Script', cursive; color: var(--deep-pink); font-size: 3rem; margin: 10px 0; }
 
@@ -96,29 +132,19 @@
         }
         .btn-premium:hover { transform: scale(1.1); filter: brightness(1.1); }
 
-        /* 3D GIFT BOX FIX */
-        .gift-container { display: flex; justify-content: space-around; margin: 50px 0; perspective: 1000px; }
+        /* GIFT BOXES */
         .gift-box {
             width: 80px; height: 80px; background: var(--red); position: relative;
             transform-style: preserve-3d; cursor: pointer; transition: 0.5s;
             box-shadow: 0 10px 20px rgba(0,0,0,0.5);
         }
-        .gift-box::before { /* Horizontal Ribbon */
-            content: ''; position: absolute; top: 35px; left: 0; width: 100%; height: 12px; background: var(--gold);
-        }
-        .gift-box::after { /* Vertical Ribbon */
-            content: ''; position: absolute; left: 35px; top: 0; width: 12px; height: 100%; background: var(--gold);
-        }
+        .gift-box::before { content: ''; position: absolute; top: 35px; left: 0; width: 100%; height: 12px; background: var(--gold); }
+        .gift-box::after { content: ''; position: absolute; left: 35px; top: 0; width: 12px; height: 100%; background: var(--gold); }
         .box-lid {
             position: absolute; top: -5px; left: -5px; width: 90px; height: 15px;
             background: #a00000; z-index: 10; transition: 0.6s; border-radius: 2px;
         }
-        .bow {
-            position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
-            width: 30px; height: 15px; background: var(--gold); border-radius: 50% 50% 0 0; z-index: 11;
-        }
 
-        
         /* VINYL PLAYER */
         .vinyl-container {
             width: 180px; height: 180px; background: radial-gradient(circle, #333 0%, #111 100%); 
@@ -128,17 +154,16 @@
         .vinyl-container.playing { animation-play-state: running; }
         .vinyl-label {
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            width: 60px; height: 60px; background: var(--deep-pink); border-radius: 50%; border: 2px solid white;
+            width: 60px; height: 60px; background: #000; border-radius: 50%; border: 2px solid #555;
         }
 
-        /* FINAL POPUP */
         #love-popup {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(135deg, #ff4d6d, #ff758f); z-index: 100;
             display: none; flex-direction: column; align-items: center; justify-content: center;
         }
-
         @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes floatUp { to { transform: translateY(-120vh); opacity: 0; } }
         .script { font-family: 'Dancing Script', cursive; color: var(--red); font-size: 2.8rem; }
         .white-card { background: white; color: #333; padding: 40px 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
     </style>
@@ -146,7 +171,7 @@
 <body>
 
     <audio id="bgMusic" loop>
-        <source src="./mp3/Daniel Caesar - Superpowers (Official Audio).mp3" type="audio/mpeg">
+        <source src="./mp3/Novacane.mp3" type="audio/mpeg">
     </audio>
 
     <div id="s1" class="screen active">
@@ -159,7 +184,7 @@
     </div>
 
     <div id="s2" class="screen">
-                <div class="white-card">
+        <div class="white-card">
             <h2 class="script">Dearest Debbie,</h2>
             <div class="polaroid-gallery">
                 <div class="polaroid p1"><img src="./image/IMG-20250502-WA0041.jpg"></div>
@@ -177,10 +202,9 @@
         <div class="valentine-box">
             <div style="font-size: 4rem; margin-bottom: 10px;">💖</div>
             <h2 class="cute-script">Will you be my Valentine?</h2>
-            <p style="color: #666; font-style: italic;">You're the only one I want!</p>
             <div style="display: flex; justify-content: center; gap: 15px;">
-                <button class="btn-premium" onclick="sayYes()" style="background: #2ecc71; box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);">YES!</button>
-                <button id="no-btn" class="btn-premium" style="background: #bdc3c7; box-shadow: none;" onmouseover="moveNo()">No</button>
+                <button class="btn-premium" onclick="sayYes()" style="background: #2ecc71;">YES!</button>
+                <button id="no-btn" class="btn-premium" style="background: #bdc3c7;" onmouseover="moveNo()">No</button>
             </div>
         </div>
     </div>
@@ -208,8 +232,8 @@
             <div class="vinyl-container" id="vinyl" onclick="toggleMusic()">
                 <div class="vinyl-label"></div>
             </div>
-            <p id="musicStatus" style="font-size: 0.8rem; color: #888;">Tap to play our song</p>
-            <p><strong>Daniel Caesar</strong><br>superpowers</p>
+            <p id="musicStatus" style="font-size: 0.8rem; color: #888;">Tap the vinyl to play</p>
+            <p><strong>Frank Ocean</strong><br>Novacane</p>
             <button class="btn-premium" onclick="next(7)">Guess What?</button>
         </div>
     </div>
@@ -223,8 +247,7 @@
     <div id="love-popup">
         <h1 class="script" style="color: white; font-size: 3.5rem;">I Love You</h1>
         <h2 style="color: white; font-family: sans-serif; letter-spacing: 5px;">SUPER DUPER MUCH</h2>
-        <div style="font-size: 5rem; margin: 20px;">💖✨🥺</div>
-        <button class="btn-premium" onclick="location.reload()" style="background: white; color: var(--deep-pink);">Replay the Love</button>
+        <button class="btn-premium" onclick="location.reload()" style="background: white; color: var(--deep-pink);">Replay</button>
     </div>
 
     <script>
@@ -242,13 +265,20 @@
         }
 
         function sayYes() {
-            confetti({ particleCount: 200, spread: 90, origin: { y: 0.6 }, colors: ['#ff4d6d', '#ffffff', '#ffd700'] });
+            confetti({ particleCount: 200, spread: 90, origin: { y: 0.6 } });
             setTimeout(() => next(5), 1500);
         }
 
         function toggleMusic() {
-            if (audio.paused) { audio.play(); vinyl.classList.add('playing'); document.getElementById('musicStatus').innerText = "Now Playing..."; }
-            else { audio.pause(); vinyl.classList.remove('playing'); document.getElementById('musicStatus').innerText = "Music Paused"; }
+            if (audio.paused) { 
+                audio.play(); 
+                vinyl.classList.add('playing'); 
+                document.getElementById('musicStatus').innerText = "Now Playing..."; 
+            } else { 
+                audio.pause(); 
+                vinyl.classList.remove('playing'); 
+                document.getElementById('musicStatus').innerText = "Music Paused"; 
+            }
         }
 
         function revealGift(n) {
@@ -262,34 +292,23 @@
             const container = document.getElementById('gift-content');
             let html = '';
             if(n === 1) {
-                html = `<h2 class="script">High-Grade Tulips</h2><div style="height: 150px; display: flex; justify-content: center; align-items: flex-bottom; gap: 5px; margin-top: 20px;">
-                    ${[...Array(5)].map((_, i) => `<div style="width: 20px; height: 100px; background: linear-gradient(to top, #2d4c28, #4a7c44); border-radius: 5px; position: relative;">
-                        <div style="width: 30px; height: 40px; background: linear-gradient(to top, #ff4d6d, #8b0000); border-radius: 50% 50% 10% 10%; position: absolute; top: -35px; left: -5px;"></div>
-                    </div>`).join('')}
-                </div><p>Elegant blooms for an elegant girl.</p>`;
+                // PINK LILY INTEGRATION
+                html = `
+                    <h2 class="script">A Beautiful Lily</h2>
+                    <div class="lily-container">
+                        <div class="lily-stem"></div>
+                        <div class="lily-petal p4-lily"></div>
+                        <div class="lily-petal p5-lily"></div>
+                        <div class="lily-petal p2-lily"></div>
+                        <div class="lily-petal p3-lily"></div>
+                        <div class="lily-petal p1-lily"></div>
+                        <div class="lily-stamen"></div>
+                    </div>
+                    <p>Elegant and rare, just like you. 🌸</p>`;
             } else if(n === 2) {
-                html = `<h2 class="script">A Love Letter</h2>
-                        <div style="text-align: left; font-size: 0.85rem; line-height: 1.6; max-height: 250px; overflow-y: auto; padding: 10px; background: #fafafa; border-radius: 10px;">
-                            Debbie, my love,<br><br>
-                            1. From the moment we met, my world shifted colors.<br> You have this way of making the ordinary feel magical.<br>
-                             Every laugh we share is a sound I want to memorize.<br>
-                             You are my calmest harbor in every storm I face.<br>
-                             I see a thousand futures, and you are in every single one.<br>
-                             Your kindness is a light that guides me when I'm lost.<br>
-                             Thank you for being the best friend I ever dared to hope for.<br>
-                             I promise to cherish you today, tomorrow, and forever.<br>
-                             There is no version of my life where I don't love you.<br>
-                             You are my superpower, my home, and my greatest joy.<br>
-                             Happy Valentine's Day to the most beautiful woman I know.<br>
-                             Forever yours, through every sunrise and every star.
-                        </div>`;
+                html = `<h2 class="script">A Love Letter</h2><div style="text-align: left; font-size: 0.85rem; line-height: 1.6; max-height: 250px; overflow-y: auto; padding: 10px; background: #fafafa; border-radius: 10px;">Debbie, you are my home and my greatest joy. Happy Valentine's Day.</div>`;
             } else {
-                html = `<h2 class="script">Shawarma Pass</h2>
-                        <div style="border: 2px dashed var(--deep-pink); padding: 20px; background: #fff; border-radius: 15px;">
-                            <div style="font-size: 3rem;">🌯</div>
-                            <p><strong>10 FREE SHAWARMA COUPONS</strong></p>
-                            <p style="font-size: 0.7rem; color: #888;">(Limit: 1 per day because I care about your health ❤️)</p>
-                        </div>`;
+                html = `<h2 class="script">Shawarma Pass</h2><div style="border: 2px dashed var(--deep-pink); padding: 20px; background: #fff; border-radius: 15px;"><div style="font-size: 3rem;">🌯</div><p><strong>10 FREE SHAWARMA COUPONS</strong></p></div>`;
             }
             container.innerHTML = html;
             next(8);
@@ -303,7 +322,6 @@
                 h.innerHTML = '❤️'; h.style.position = 'absolute';
                 h.style.left = Math.random() * 100 + 'vw';
                 h.style.top = '100vh';
-                h.style.fontSize = Math.random() * 30 + 20 + 'px';
                 h.style.animation = 'floatUp 3s forwards';
                 popup.appendChild(h);
                 setTimeout(() => h.remove(), 3000);
@@ -319,5 +337,3 @@
     </script>
 </body>
 </html>
-
-
